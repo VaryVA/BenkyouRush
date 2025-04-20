@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>ЛК</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+  </head>
+  <body class="MY_OFFICE">
+    <header class="main-header">
+      <ul class="site-navigation">
+        <li >
+          <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+        </li>
+        <li><button class="site-navigation-item" onclick="window.location.href='SEARCH_EVENTS.html'">Поиск мероприятий</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='MY_EVENTS.html'">Мои мероприятия</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='RECOMENDATIONS.html'">Рекомендации</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='MY_OFFICE.html'">Личный кабинет</button></li>
+      </ul>
+    </header>
+    <div class="container" style="display: flex; height: 100vh;">
+    <!-- Левая колонка -->
+    <aside class="sidebar" style="width: 30%; padding: 20px; box-sizing: border-box; overflow-y: auto;">
+      <div class="avatar" style="width: 150px; height: 150px; border-radius: 50%; background: #eee; margin-bottom: 20px;"></div>
+      <div class="user-info">
+        <h2 class="user-name">Имя Участника</h2>
+        <p class="user-nick">@username</p>
+      </div>
+      <nav class="menu" style="margin-top: 30px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><button>Безопасность</button></li>
+          <li><button>Уведомления</button></li>
+          <li><button>Помощь</button></li>
+          <li><button>Выход</button></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Правая колонка -->
+    <main class="content" style="flex: 1; padding: 20px; box-sizing: border-box; overflow-y: auto;">
+      <section class="points">
+        <h2>Очки</h2>
+        <p class="points-value"></p>
+      </section>
+
+      <section class="achievements" style="margin-top: 30px;">
+        <h2>Достижения</h2>
+        <ul>
+          <li></li>
+          <li></li>
+          <!-- динамически добавляются -->
+        </ul>
+      </section>
+
+      <div class="shop-button" style="margin-top: 40px;">
+        <button onclick="window.location.href='Shop.html'">Магазин</button>
+      </div>
+    </main>
+  </div>
+  </body>
+</html>

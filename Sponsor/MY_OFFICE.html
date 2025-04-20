@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>ЛК</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+  </head>
+  <body>
+    <header class="main-header">
+      <ul class="site-navigation">
+        <li class="site-navigation-item">
+          <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="SEARCH_EVENTS.html">Поиск мероприятий</a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="MY_EVENTS.html">Мои мероприятия</a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="MY_OFFICE.html">Личный кабинет</a>
+        </li>
+      </ul>
+    </header>
+    <div class="container" style="display: flex; height: 100vh;">
+    <!-- Левая колонка -->
+    <aside class="sidebar" style="width: 30%; padding: 20px; box-sizing: border-box; overflow-y: auto;">
+      <div class="avatar" style="width: 150px; height: 150px; border-radius: 50%; background: #eee; margin-bottom: 20px;"></div>
+      <div class="user-info">
+        <h2 class="user-name">Имя Участника</h2>
+        <p class="user-nick">@username</p>
+      </div>
+      <nav class="menu" style="margin-top: 30px;">
+        <ul style="list-style: none; padding: 0;">
+          <li><button>Безопасность</button></li>
+          <li><button>Уведомления</button></li>
+          <li><button>Помощь</button></li>
+          <li><button>Выход</button></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Правая колонка -->
+    <main class="content" style="flex: 1; padding: 20px; box-sizing: border-box; overflow-y: auto;">
+      <section class="points">
+        <h2>Ваш рейтинг</h2>
+        <p class="points-value">4.8/5</p>
+      </section>
+      <section class="points">
+        <h2>Ваши организаторы</h2>
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+      <section>
+        <div class="search-bar">
+          <h2>Добавление организатора</h2>
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Добавить организатора"
+            >
+            <button class="search-button">Найти</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  </body>
+</html>

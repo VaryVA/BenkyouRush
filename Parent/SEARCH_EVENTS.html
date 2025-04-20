@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Поиск</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  </head>
+  <body class="SEARCH_EVENTS">
+    <header class="main-header">
+      <ul class="site-navigation">
+        <li >
+          <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+        </li>
+        <li><button class="site-navigation-item" onclick="window.location.href='SEARCH_EVENTS.html'">Поиск мероприятий</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='MY_EVENTS.html'">Мои мероприятия</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='RECOMENDATIONS.html'">Рекомендации</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='MY_OFFICE.html'">Личный кабинет</button></li>
+      </ul>
+    </header>
+    <!-- Основной контент -->
+    <main class="search-events">
+        <section class="search-section">
+            <h1 class="search-title">Найдите научные мероприятия</h1>
+
+            <!-- Поисковая строка -->
+            <div class="search-bar">
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Введите название, тему или место"
+                >
+                <button class="search-button">Найти</button>
+            </div>
+
+            <!-- Фильтры -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="category">Категория:</label>
+                    <select id="category" class="filter-select">
+                        <option value="all">Все</option>
+                        <option value="conference">Конференции</option>
+                        <option value="workshop">Воркшопы</option>
+                        <option value="hacaton">Хакатоны</option>
+                        <option value="StartUp-Cump">Стартап-лагеря</option>
+                        <option value="StartUp-Cump">Научные фестивали</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="date">Дата:</label>
+                    <select id="date" class="filter-select">
+                        <option value="all">Любая</option>
+                        <option value="week">На этой неделе</option>
+                        <option value="month">В этом месяце</option>
+                        <option value="custom">Конкретная дата</option>
+                    </select>
+                    <input
+                        type="text"
+                        id="custom-date"
+                        class="filter-select date-input"
+                        placeholder="Выберите дату"
+                        style="display: none;"
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="age">Возраст:</label>
+                    <select id="age" class="filter-select">
+                        <option value="all">Все</option>
+                        <option value="0+">0+</option>
+                        <option value="6+">6+</option>
+                        <option value="12+">12+</option>
+                        <option value="16+">16+</option>
+                        <option value="18+">18+</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Результаты поиска -->
+        <section class="results-section">
+            <h2 class="results-title">Найдено мероприятий:</h2>
+
+            <div class="event-list">
+                <!-- Карточка мероприятия 1 -->
+                <div class="event-card"></div>
+
+                <!-- Карточка мероприятия 2 -->
+                <div class="event-card"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+    <script>
+      const datePicker = flatpickr("#custom-date", {
+        dateFormat: "d.m.Y",
+        locale: "ru"
+      });
+
+      document.getElementById('date').addEventListener('change', function() {
+        const customDateInput = document.getElementById('custom-date');
+        if (this.value === 'custom') {
+          customDateInput.style.display = 'block';
+          datePicker.open();
+        } else {
+          customDateInput.style.display = 'none';
+          datePicker.clear();
+        }
+      });
+    </script>
+  </body>
+</html>

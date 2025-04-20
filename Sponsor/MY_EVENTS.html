@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Мои события</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+  </head>
+  <body>
+    <header class="main-header">
+      <ul class="site-navigation">
+        <li class="site-navigation-item">
+          <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="SEARCH_EVENTS.html">Поиск мероприятий</a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="MY_EVENTS.html">Мои мероприятия</a>
+        </li>
+        <li class="site-navigation-item">
+          <a href="MY_OFFICE.html">Личный кабинет</a>
+        </li>
+      </ul>
+    </header>
+    <main class="my-events">
+  <div class="container">
+    <h1 class="my-events__title">Мои мероприятия</h1>
+
+    <!-- Табы для переключения -->
+    <div class="events-tabs">
+      <button class="events-tab events-tab--active" data-tab="active">Активные</button>
+      <button class="events-tab" data-tab="archived">Архивные</button>
+    </div>
+
+    <!-- Активные мероприятия (видимы по умолчанию) -->
+    <section class="events-section" id="active-events">
+      <div class="events-grid">
+        <!-- Карточка мероприятия 1 -->
+        <article class="event-card">
+          <div class="event-card__header">
+            <span class="event-card__date">15-17 апреля 2025</span>
+            <span class="event-card__status event-card__status--active">Активно</span>
+          </div>
+          <h3 class="event-card__title">Международная конференция по искусственному интеллекту</h3>
+          <p class="event-card__description">Обсуждение последних достижений в области ИИ и машинного обучения с ведущими экспертами отрасли.</p>
+          <div class="event-card__footer">
+            <span class="event-card__location">Нижневартовск, ул. Чапаева 91</span>
+            <a href="#" class="event-card__link">Подробнее</a>
+          </div>
+        </article>
+
+
+      <div class="events-section__empty" style="display: none;">
+        <p>У вас нет активных мероприятий.</p>
+      </div>
+    </section>
+
+    <!-- Архивные мероприятия (изначально скрыты) -->
+    <section class="events-section" id="archived-events" style="display: none;">
+      <div class="events-grid">
+        <!-- Карточка мероприятия 1 -->
+        <article class="event-card">
+          <div class="event-card__header">
+            <span class="event-card__date">2-10 мая 202</span>
+            <span class="event-card__status event-card__status--archived">Завершено</span>
+          </div>
+          <h3 class="event-card__title">Научная конференция по биотехнологиям</h3>
+          <p class="event-card__description">Ежегодная конференция, посвященная новейшим разработкам в области биотехнологий и генной инженерии.</p>
+          <div class="event-card__footer">
+            <span class="event-card__location">Екб, Мичуринск, ул. Мичурина 2</span>
+            <a href="#" class="event-card__link">Подробнее</a>
+          </div>
+        </article>
+
+      <div class="events-section__empty" style="display: none;">
+        <p>У вас пока нет архивных мероприятий.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.events-tab');
+
+  // Функция переключения табов
+  function switchTab(tabElement) {
+    // Удаляем активный класс у всех табов
+    tabs.forEach(t => t.classList.remove('events-tab--active'));
+
+    // Добавляем активный класс текущему табу
+    tabElement.classList.add('events-tab--active');
+
+    // Скрываем все секции мероприятий
+    document.querySelectorAll('.events-section').forEach(section => {
+      section.style.display = 'none';
+    });
+
+    // Показываем только выбранную секцию
+    const tabId = tabElement.getAttribute('data-tab');
+    document.getElementById(`${tabId}-events`).style.display = 'block';
+  }
+
+  // Обработчики клика для табов
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      switchTab(this);
+    });
+  });
+
+  // По умолчанию активируем вкладку "Активные"
+  const activeTab = document.querySelector('.events-tab[data-tab="active"]');
+  switchTab(activeTab);
+});
+</script>
+  </body>
+</html>

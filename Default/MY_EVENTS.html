@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Мои события</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+  </head>
+  <body class="MY_EVENTS">
+    <header class="main-header">
+      <ul class="site-navigation">
+        <li>
+          <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+        </li>
+        <li><button class="site-navigation-item" onclick="window.location.href='SEARCH_EVENTS.html'">Поиск мероприятий</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='MY_EVENTS.html'">Мои мероприятия</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='RECOMENDATIONS.html'">Рекомендации</button></li>
+        <li><button class="site-navigation-item" onclick="window.location.href='Registration_form.html'">Зарегистрироваться/Войти</button></li>
+      </ul>
+    </header>
+    <main class="my-events">
+  <div class="container">
+    <h1 class="my-events__title">Мои мероприятия</h1>
+
+    <!-- Табы для переключения -->
+    <div class="events-tabs">
+      <button class="events-tab events-tab--active" data-tab="active">Активные</button>
+      <button class="events-tab" data-tab="archived">Архивные</button>
+    </div>
+
+    <!-- Активные мероприятия (видимы по умолчанию) -->
+    <section class="events-section" id="active-events">
+      <div class="events-grid">
+      <div class="events-section__empty" style="display: none;">
+        <p>У вас нет активных мероприятий.</p>
+      </div>
+    </div>
+    </section>
+
+    <!-- Архивные мероприятия (изначально скрыты) -->
+    <section class="events-section" id="archived-events" style="display: none;">
+      <div class="events-grid">
+      <div class="events-section__empty" style="display: none;">
+        <p>У вас пока нет архивных мероприятий.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.events-tab');
+
+  // Функция переключения табов
+  function switchTab(tabElement) {
+    // Удаляем активный класс у всех табов
+    tabs.forEach(t => t.classList.remove('events-tab--active'));
+
+    // Добавляем активный класс текущему табу
+    tabElement.classList.add('events-tab--active');
+
+    // Скрываем все секции мероприятий
+    document.querySelectorAll('.events-section').forEach(section => {
+      section.style.display = 'none';
+    });
+
+    // Показываем только выбранную секцию
+    const tabId = tabElement.getAttribute('data-tab');
+    document.getElementById(`${tabId}-events`).style.display = 'block';
+  }
+
+  // Обработчики клика для табов
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      switchTab(this);
+    });
+  });
+
+  // По умолчанию активируем вкладку "Активные"
+  const activeTab = document.querySelector('.events-tab[data-tab="active"]');
+  switchTab(activeTab);
+});
+</script>
+  </body>
+</html>

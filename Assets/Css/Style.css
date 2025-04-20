@@ -1,0 +1,163 @@
+/* Пример содержимого styles.css */
+.Main_Page {
+    font-family: Arial, sans-serif;
+
+    background-image: url('../Main_Page.svg');
+    background-repeat: no-repeat;  /* Отключаем повторение */
+    background-size: cover;       /* Растягиваем на весь экран */
+    background-position: center;  /* Центрируем */
+    min-height: 100vh;           /* Минимальная высота = экран */
+}
+.RECOMENDATIONS {
+    font-family: Arial, sans-serif;
+
+    background-image: url('../Recomendation.svg');
+    background-repeat: no-repeat;  /* Отключаем повторение */
+    background-size: cover;       /* Растягиваем на весь экран */
+    background-position: center;  /* Центрируем */
+    min-height: 100vh;           /* Минимальная высота = экран */
+}
+.MY_OFFICE {
+  font-family: Arial, sans-serif;
+
+  background-image: url('../Office.png');
+  background-repeat: no-repeat;  /* Отключаем повторение */
+  background-size: cover;       /* Растягиваем на весь экран */
+  background-position: center;  /* Центрируем */
+  min-height: 100vh;
+}
+.SEARCH_EVENTS {
+    font-family: Arial, sans-serif;
+
+    background-image: url('../Search.svg');
+    background-repeat: no-repeat;  /* Отключаем повторение */
+    background-size: cover;       /* Растягиваем на весь экран */
+    background-position: center;  /* Центрируем */
+    min-height: 100vh;           /* Минимальная высота = экран */
+}
+.MY_EVENTS {
+    font-family: Arial, sans-serif;
+
+    background-image: url('../My_Events.svg');
+    background-repeat: no-repeat;  /* Отключаем повторение */
+    background-size: cover;       /* Растягиваем на весь экран */
+    background-position: center;  /* Центрируем */
+    min-height: 100vh;           /* Минимальная высота = экран */
+}
+.CREATE_EVENT
+{
+
+}
+
+.main-header {
+  background-color: #4b3f61;
+  border-radius: 50px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: center;        /* Добавлено — центрируем всё содержимое */
+  align-items: center;            /* уже есть — центр по вертикали */
+  height: 196px;                  /* фиксированная высота */
+  gap: 60px;                      /* Добавлено — отступ между картинкой и кнопками */
+}
+
+.site-navigation {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  width: auto;                    /* Изменено: убираем растяжение на 100% */
+}
+
+.site-navigation-item {
+  display: inline-block;
+  width: 243px;
+  height: 79px;
+  border-radius: 49px;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+  line-height: 79px;
+}
+/* Дополнительные стили для формы создания мероприятия */
+.event-form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+.icon-upload {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ticket-type, .referral-program {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.referral-settings {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 3px solid #4b3f61;
+    display: none;
+}
+
+.submit-btn {
+    background-color: #4b3f61;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #3a324b;
+}

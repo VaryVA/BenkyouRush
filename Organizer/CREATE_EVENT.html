@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Создание мероприятия</title>
+    <link rel="stylesheet" href="../Assets/Css/Style.css">
+</head>
+<body>
+    <header class="main-header">
+        <ul class="site-navigation">
+            <li>
+                <a href="MAIN_PAGE.html"><img src="../Assets/Logo.svg" alt="Логотип Benkyo Rush"></a>
+            </li>
+            <li><button class="site-navigation-item" onclick="window.location.href='SEARCH_EVENTS.html'">Поиск мероприятий</button></li>
+            <li><button class="site-navigation-item" onclick="window.location.href='MY_EVENTS.html'">Мои мероприятия</button></li>
+            <li><button class="site-navigation-item" onclick="window.location.href='CREATE_EVENT.html'">Создание мероприятия</button></li>
+            <li><button class="site-navigation-item" onclick="window.location.href='MY_OFFICE.html'">Личный кабинет</button></li>
+        </ul>
+    </header>
+
+    <main class="CREATE_EVENT">
+        <div class="event-form">
+            <h1>Создание нового мероприятия</h1>
+
+            <form id="eventForm">
+                <!-- Иконка мероприятия -->
+                <div class="form-group">
+                    <label>Иконка мероприятия</label>
+                    <div class="icon-upload">
+                        <div class="icon-preview" id="iconPreview">
+                            <span>+</span>
+                        </div>
+                        <input type="file" id="iconUpload" accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Основная информация -->
+                <div class="form-group">
+                    <label for="eventName">Название мероприятия</label>
+                    <input type="text" id="eventName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Дата и время</label>
+                    <input type="datetime-local" id="eventDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventLocation">Место проведения</label>
+                    <input type="text" id="eventLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDescription">Описание</label>
+                    <textarea id="eventDescription" required></textarea>
+                </div>
+
+                <!-- Тип пропуска -->
+                <div class="form-group">
+                    <label>Тип пропуска</label>
+                    <div>
+                        <label><input type="radio" name="ticketType" value="free" checked> Бесплатно</label>
+                        <label><input type="radio" name="ticketType" value="paid"> Платно</label>
+                    </div>
+
+                    <div class="ticket-type" id="paidOptions" style="display: none;">
+                        <label for="ticketPrice">Цена билета (руб.)</label>
+                        <input type="number" id="ticketPrice" min="0" step="100">
+                    </div>
+                </div>
+
+                <!-- Реферальная программа -->
+                <div class="form-group">
+                    <div class="referral-program">
+                        <label>
+                            <input type="checkbox" id="enableReferral"> Включить реферальную программу
+                        </label>
+
+                        <div class="referral-settings" id="referralSettings">
+                            <div class="form-group">
+                                <label for="rewardType">Тип вознаграждения</label>
+                                <select id="rewardType">
+                                    <option value="discount">Скидка</option>
+                                    <option value="cashback">Кэшбэк</option>
+                                    <option value="freeTicket">Бесплатный билет</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rewardAmount">Размер вознаграждения</label>
+                                <input type="text" id="rewardAmount" placeholder="Например: 10% или 500 руб.">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="requiredInvites">Количество приглашенных для получения</label>
+                                <input type="number" id="requiredInvites" min="1" value="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Создать мероприятие</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Показываем/скрываем поле цены в зависимости от типа билета
+        document.querySelectorAll('input[name="ticketType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('paidOptions').style.display =
+                    this.value === 'paid' ? 'block' : 'none';
+            });
+        });
+
+        // Показываем/скрываем настройки реферальной программы
+        document.getElementById('enableReferral').addEventListener('change', function() {
+            document.getElementById('referralSettings').style.display =
+                this.checked ? 'block' : 'none';
+        });
+
+        // Предпросмотр загружаемой иконки
+        document.getElementById('iconUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('iconPreview');
+                    preview.innerHTML = `<img src="${event.target.result}" alt="Preview">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Обработка отправки формы
+        document.getElementById('eventForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Мероприятие успешно создано!');
+            // Здесь можно добавить код для отправки данных на сервер
+        });
+    </script>
+</body>
+</html>
